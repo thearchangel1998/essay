@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyện Viết TOEIC - Tổng Hợp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .tab-content, .sub-tab-content {
+            display: none;
+        }
+        .tab-content.active, .sub-tab-content.active {
+            display: block;
+        }
+        .tab-btn.active {
+            border-color: #4f46e5;
+            background-color: #eef2ff;
+            color: #4f46e5;
+            font-weight: 600;
+        }
+        .sub-tab-btn.active {
+            border-color: #6366f1;
+            color: #4338ca;
+            background-color: #f5f3ff;
+            font-weight: 600;
+        }
+        /* Accordion Styles */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+        .accordion-header.active {
+            background-color: #eef2ff;
+        }
+        .accordion-header .arrow {
+            transition: transform 0.3s ease;
+        }
+        .accordion-header.active .arrow {
+            transform: rotate(90deg);
+        }
+
+        /* PEEL Colors */
+        .peel-p { color: #1d4ed8; font-weight: 600; }
+        .peel-e1 { color: #15803d; font-weight: 600; }
+        .peel-e2 { color: #b45309; font-weight: 600; }
+        .peel-l { color: #7e22ce; font-weight: 600; }
+
+        .highlight-p { background-color: #dbeafe; }
+        .highlight-e1 { background-color: #dcfce7; }
+        .highlight-e2 { background-color: #fef3c7; }
+        .highlight-l { background-color: #f3e8ff; }
+        
+        [contenteditable]:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #c7d2fe;
+        }
+        .feedback-list li, .analysis-list li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+        .feedback-list li::before {
+            content: '⚡️';
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+        .analysis-list li::before {
+            content: '🎯';
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+        .analysis-list.vocab li::before {
+            content: '🔑';
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-indigo-700">Luyện Viết TOEIC Writing</h1>
+            <p class="mt-2 text-lg text-slate-600">Nắm vững cấu trúc đoạn văn với phương pháp P.E.E.L.</p>
+        </header>
+
+        <!-- Main Tabs -->
+        <div class="bg-white rounded-xl shadow-md border border-slate-200">
+            <nav class="flex border-b border-slate-200">
+                <button class="tab-btn flex-1 p-4 text-center text-slate-600 border-b-2 border-transparent transition-colors duration-300 active" data-tab="guide">
+                    <span class="text-base md:text-lg">📚 Hướng Dẫn</span>
+                </button>
+                <button class="tab-btn flex-1 p-4 text-center text-slate-600 border-b-2 border-transparent transition-colors duration-300" data-tab="samples">
+                    <span class="text-base md:text-lg">📝 Phân Tích Bài Mẫu</span>
+                </button>
+                <button class="tab-btn flex-1 p-4 text-center text-slate-600 border-b-2 border-transparent transition-colors duration-300" data-tab="practice">
+                    <span class="text-base md:text-lg">✍️ Luyện Tập</span>
+                </button>
+            </nav>
+
+            <div class="p-6 md:p-8">
+                <!-- Guide Tab -->
+                <div id="guide" class="tab-content active">
+                    <h3 class="text-2xl font-bold mb-4 text-indigo-700">Phương pháp P.E.E.L. là gì?</h3>
+                    <p class="mb-6 text-slate-600">P.E.E.L. là một công thức hiệu quả giúp bạn xây dựng các đoạn văn thân bài một cách logic, mạch lạc và đầy đủ ý. Mỗi chữ cái đại diện cho một thành phần thiết yếu của đoạn văn.</p>
+                    <div class="space-y-4">
+                        <div class="p-4 border-l-4 border-blue-500 bg-blue-50 rounded-r-lg"><h4 class="font-bold text-lg text-blue-800">P - Point (Luận điểm)</h4><p class="text-blue-700">Bắt đầu đoạn văn bằng một câu chủ đề (Topic Sentence) rõ ràng. Câu này nêu lên lý lẽ chính mà bạn sẽ trình bày trong đoạn.</p></div>
+                        <div class="p-4 border-l-4 border-green-500 bg-green-50 rounded-r-lg"><h4 class="font-bold text-lg text-green-800">E - Explanation (Giải thích)</h4><p class="text-green-700">Giải thích rõ hơn về luận điểm của bạn. Tại sao nó lại đúng? Nó có ý nghĩa gì? Phần này làm cho lập luận của bạn sâu sắc hơn.</p></div>
+                        <div class="p-4 border-l-4 border-yellow-500 bg-yellow-50 rounded-r-lg"><h4 class="font-bold text-lg text-yellow-800">E - Example (Ví dụ)</h4><p class="text-yellow-700">Cung cấp một ví dụ cụ thể, tình huống thực tế, hoặc số liệu để minh họa. Ví dụ giúp lập luận của bạn trở nên thuyết phục và dễ hiểu.</p></div>
+                        <div class="p-4 border-l-4 border-purple-500 bg-purple-50 rounded-r-lg"><h4 class="font-bold text-lg text-purple-800">L - Link (Liên kết)</h4><p class="text-purple-700">Kết thúc đoạn bằng một câu tóm tắt ý chính của đoạn và liên kết nó trở lại với luận đề chung của bài văn.</p></div>
+                    </div>
+                </div>
+
+                <!-- Samples Tab -->
+                <div id="samples" class="tab-content">
+                    <h3 class="text-2xl font-bold mb-4 text-indigo-700">Phân Tích Bài Luận Mẫu</h3>
+                    <p class="mb-6 text-slate-600">Nhấp vào từng đề bài để xem phân tích chi tiết.</p>
+                    
+                    <div class="space-y-4">
+                        <!-- Accordion 1 -->
+                        <div class="essay-accordion border border-slate-200 rounded-lg">
+                            <button class="accordion-header w-full flex justify-between items-center text-left p-4 bg-slate-100 hover:bg-slate-200 transition-colors duration-200">
+                                <h4 class="text-lg font-bold text-slate-800">Đề 1: What do you think are the most important characteristics for a job?</h4>
+                                <span class="arrow text-indigo-600 text-2xl">▸</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="p-4">
+                                    <nav class="flex border-b border-slate-200 mb-6 rounded-t-lg overflow-hidden">
+                                        <button class="sub-tab-btn flex-1 p-3 text-center text-sm md:text-base text-slate-600 border-b-2 border-transparent transition-colors duration-300 active" data-subtab="essay1-score3">👎 Phiên bản 3/5</button>
+                                        <button class="sub-tab-btn flex-1 p-3 text-center text-sm md:text-base text-slate-600 border-b-2 border-transparent transition-colors duration-300" data-subtab="essay1-score5">👍 Phiên bản 5/5</button>
+                                    </nav>
+                                    <div>
+                                        <div id="essay1-score3" class="sub-tab-content active"><div class="p-4 border border-orange-300 bg-orange-50 rounded-lg"><h5 class="text-lg font-bold mb-2 text-orange-800">Bài Luận Mẫu - Cấp độ 3/5</h4><div class="p-3 bg-white rounded-md text-slate-700 space-y-3"><p>Choosing a job is a very important decision. Many things are important in a job. In my opinion, I think a good environment and a chance to learn are the most important. This essay will explain my reasons.</p><p><span class="highlight-p"><span class="peel-p">(P)</span> First, having a good work environment is important.</span> <span class="highlight-e1"><span class="peel-e1">(E)</span> This means having a good boss and nice coworkers. When people are friendly, work is more fun. It is not stressful.</span> <span class="highlight-e2"><span class="peel-e2">(E)</span> For example, my friend works in a company where his boss always helps him. He feels happy to go to work every day.</span> <span class="highlight-l"><span class="peel-l">(L)</span> So, a good environment makes employees happy.</span></p><p><span class="highlight-p"><span class="peel-p">(P)</span> Second, it is important to have a job where you can learn new things.</span> <span class="highlight-e1"><span class="peel-e1">(E)</span> If you learn new skills, you can grow. This is good for your future. You will not be bored with your job.</span> <span class="highlight-e2"><span class="peel-e2">(E)</span> For instance, some companies let workers go to training courses. This helps them get better at their job and maybe get a promotion.</span> <span class="highlight-l"><span class="peel-l">(L)</span> Therefore, learning opportunities are very important for a career.</span></p><p>In conclusion, these are the two most important things for me in a job. A good environment and learning opportunities make a job good. I think everyone should look for these things when they find a job.</p></div></div></div>
+                                        <div id="essay1-score5" class="sub-tab-content"><div class="p-4 border border-green-300 bg-green-50 rounded-lg"><h5 class="text-lg font-bold mb-2 text-green-800">Bài Luận Mẫu - Cấp độ 5/5</h4><div class="p-3 bg-white rounded-md text-slate-800 space-y-4">
+                                            <p>When considering a career path, individuals weigh various factors, from salary to work-life balance. In my view, while financial compensation is a key consideration, other non-monetary aspects are ultimately more crucial for long-term job satisfaction. This essay will explore two of the most essential characteristics that I believe define an ideal job.</p>
+                                            <p><span class="highlight-p"><span class="peel-p">(P)</span> First and foremost, a supportive work environment is paramount for an employee's well-being and productivity.</span> <span class="highlight-e1"><span class="peel-e1">(E)</span> Such an environment is characterized by open communication, mutual respect among colleagues, and managers who provide constructive feedback rather than criticism. This sense of psychological safety encourages creativity and allows employees to take calculated risks without fear of failure, which is crucial for innovation.</span> <span class="highlight-e2"><span class="peel-e2">(E)</span> For example, in my previous role as a marketing assistant, my team held weekly brainstorming sessions where every idea was welcomed. This collaborative atmosphere not only boosted our team's morale but also resulted in our most successful campaign of the year.</span> <span class="highlight-l"><span class="peel-l">(L)</span> Therefore, a positive workplace culture is not just a "nice-to-have" feature; it is a critical driver of both personal job satisfaction and organizational success.</span></p><p><span class="highlight-p"><span class="peel-p">(P)</span> Equally important is the availability of opportunities for professional growth and skill acquisition.</span> <span class="highlight-e1"><span class="peel-e1">(E)</span> A job that offers a clear career trajectory and invests in its employees' development ensures that workers remain engaged and motivated. It prevents career stagnation and equips employees with new competencies, making them more valuable assets to the company and enhancing their own marketability in the long run.</span> <span class="highlight-e2"><span class="peel-e2">(E)</span> For instance, a company that offers subsidized professional certifications, mentorship programs, or tuition reimbursement for further education demonstrates a genuine commitment to its workforce. An employee at such a firm is more likely to feel valued and envision a long-term future there.</span> <span class="highlight-l"><span class="peel-l">(L)</span> Consequently, robust opportunities for advancement are a vital characteristic of any job worth pursuing.</span></p><p>In conclusion, while many aspects contribute to a desirable job, I believe that a nurturing environment and clear pathways for professional development are the most critical. These characteristics create a synergistic relationship where happy, growing employees contribute to a thriving, innovative company. Any job that provides these two fundamental pillars is, in my opinion, an ideal workplace to build a meaningful and rewarding career.</p></div>
+                                            <hr class="my-4 border-green-200">
+                                            <div class="text-green-900 px-3">
+                                                <h6 class="font-bold text-lg mb-3">Phân Tích Yếu Tố "Ăn Điểm"</h6>
+                                                <ul class="analysis-list text-sm">
+                                                    <li><strong>Câu phức hợp:</strong> Mở đầu bằng mệnh đề phụ để tạo sự tương phản: "While financial compensation is a key consideration, other non-monetary aspects are..."</li>
+                                                    <li><strong>Cấu trúc song song:</strong> "a supportive and collaborative work environment and ample opportunities for professional development."</li>
+                                                    <li><strong>Danh động từ làm chủ ngữ (Gerund):</strong> "When considering a career path,..."</li>
+                                                </ul>
+                                                <ul class="analysis-list vocab text-sm mt-3">
+                                                    <li><strong>Từ vựng cao cấp:</strong> `paramount`, `synergistic relationship`, `career stagnation`, `robust opportunities`, `nurturing environment`.</li>
+                                                    <li><strong>Từ đồng nghĩa cho "important":</strong> <strong class="text-red-600">`essential`, `crucial`, `paramount`, `vital`, `critical`</strong>.</li>
+                                                    <li><strong>Từ nối học thuật:</strong> `First and foremost`, `Equally important`, `Consequently`, `Therefore`.</li>
+                                                </ul>
+                                            </div>
+                                        </div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Accordion 2 -->
+                        <div class="essay-accordion border border-slate-200 rounded-lg">
+                            <button class="accordion-header w-full flex justify-between items-center text-left p-4 bg-slate-100 hover:bg-slate-200 transition-colors duration-200">
+                                <h4 class="text-lg font-bold text-slate-800">Đề 2: What are the advantages and disadvantages of night-shift work?</h4>
+                                <span class="arrow text-indigo-600 text-2xl">▸</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="p-4">
+                                    <nav class="flex border-b border-slate-200 mb-6 rounded-t-lg overflow-hidden">
+                                        <button class="sub-tab-btn flex-1 p-3 text-center text-sm md:text-base text-slate-600 border-b-2 border-transparent transition-colors duration-300 active" data-subtab="essay2-score3">👎 Phiên bản 3/5</button>
+                                        <button class="sub-tab-btn flex-1 p-3 text-center text-sm md:text-base text-slate-600 border-b-2 border-transparent transition-colors duration-300" data-subtab="essay2-score5">👍 Phiên bản 5/5</button>
+                                    </nav>
+                                    <div>
+                                        <div id="essay2-score3" class="sub-tab-content active"><div class="p-4 border border-orange-300 bg-orange-50 rounded-lg"><h5 class="text-lg font-bold mb-2 text-orange-800">Bài Luận Mẫu - Cấp độ 3/5</h5><div class="p-3 bg-white rounded-md text-slate-700 space-y-3"><p>Working at night is a topic with many opinions. It has advantages and disadvantages. This essay will discuss both sides of night-shift work. People should know about the good and bad things.</p><p><span class="highlight-p"><span class="peel-p">(P)</span> First, a good thing about night work is you can get more money.</span> <span class="highlight-e1"><span class="peel-e1">(E)</span> Companies pay more for night shifts. This is a bonus for workers.</span> <span class="highlight-e2"><span class="peel-e2">(E)</span> For example, a worker in a factory can get more money every hour. This helps them buy things for their family.</span> <span class="highlight-l"><span class="peel-l">(L)</span> So, the extra money is a big reason why people choose this work.</span></p><p><span class="highlight-p"><span class="peel-p">(P)</span> However, a big problem is health.</span> <span class="highlight-e1"><span class="peel-e1">(E)</span> It is bad for your body to work at night. People’s bodies want to sleep at night, so working is not natural. This can make people sick.</span> <span class="highlight-e2"><span class="peel-e2">(E)</span> For instance, many workers feel tired all the time. They can also feel sad because they cannot see their friends and family often.</span> <span class="highlight-l"><span class="peel-l">(L)</span> This makes their life difficult.</span></p><p>In conclusion, night work has good and bad things. The money is a big advantage, but the health problems are a big disadvantage. People must think about both things to make a good choice for their life.</p></div></div></div>
+                                        <div id="essay2-score5" class="sub-tab-content"><div class="p-4 border border-green-300 bg-green-50 rounded-lg"><h5 class="text-lg font-bold mb-2 text-green-800">Bài Luận Mẫu - Cấp độ 5/5</h5><div class="p-3 bg-white rounded-md text-slate-800 space-y-4">
+                                            <p>In our modern, 24/7 global economy, working at night has become a common requirement in many industries. This unconventional schedule presents a unique set of benefits as well as significant drawbacks. This essay will provide a balanced discussion of the key advantages and disadvantages of night-shift work.</p>
+                                            <p><span class="highlight-p"><span class="peel-p">(P)</span> Undoubtedly, one of the most significant advantages of working the night shift is the potential for enhanced financial compensation.</span> <span class="highlight-e1"><span class="peel-e1">(E)</span> To incentivize employees for working during these less desirable hours, companies typically offer a substantial pay differential. This financial reward is a strategic tool to attract and retain talent for roles that must operate around the clock, such as in healthcare, manufacturing, and logistics.</span> <span class="highlight-e2"><span class="peel-e2">(E)</span> For instance, a registered nurse or a logistics operator on a night shift might earn a premium of 15% to 30% more per hour than their day-shift counterparts. Over the course of a year, this additional income can amount to a considerable sum, enabling workers to accelerate their financial goals.</span> <span class="highlight-l"><span class="peel-l">(L)</span> Thus, this direct monetary benefit serves as a powerful and compelling motivator for many individuals to opt for a nocturnal work schedule.</span></p><p><span class="highlight-p"><span class="peel-p">(P)</span> Conversely, a primary disadvantage of night-shift work is its potential negative impact on an individual's physical and mental health.</span> <span class="highlight-e1"><span class="peel-e1">(E)</span> Consistently working against the body's natural circadian rhythm disrupts sleep patterns, often leading to chronic sleep deprivation. This state of exhaustion can compromise the immune system, impair cognitive function, and negatively affect one's mood.</span> <span class="highlight-e2"><span class="peel-e2">(E)</span> For example, numerous scientific studies have linked long-term night-shift work to a higher incidence of serious health issues, including cardiovascular disease and diabetes. Furthermore, the social isolation that results from an inverted schedule can lead to heightened stress and feelings of detachment from family and friends.</span> <span class="highlight-l"><span class="peel-l">(L)</span> Consequently, the cumulative health and social risks represent a formidable drawback that must be carefully considered by anyone contemplating this line of work.</span></p><p>In conclusion, night-shift work presents a clear dichotomy of compelling benefits and serious challenges. It offers tangible financial rewards that can significantly improve a worker's economic standing, yet it simultaneously poses considerable risks to physical health and social integration. Ultimately, a decision to undertake nocturnal work is a deeply personal one, requiring a careful balancing of financial priorities against long-term well-being.</p></div>
+                                            <hr class="my-4 border-green-200">
+                                            <div class="text-green-900 px-3">
+                                                <h6 class="font-bold text-lg mb-3">Phân Tích Yếu Tố "Ăn Điểm"</h6>
+                                                <ul class="analysis-list text-sm">
+                                                    <li><strong>Cụm từ giới thiệu phức hợp:</strong> "In our modern, 24/7 global economy,..."</li>
+                                                    <li><strong>Động từ nguyên mẫu chỉ mục đích (Infinitive of purpose):</strong> "To incentivize employees for working..."</li>
+                                                    <li><strong>Danh động từ làm chủ ngữ (Gerund):</strong> "Consistently working against the body's natural circadian rhythm..."</li>
+                                                </ul>
+                                                <ul class="analysis-list vocab text-sm mt-3">
+                                                    <li><strong>Từ vựng chuyên ngành:</strong> `circadian rhythm`, `cardiovascular disease`, `cognitive function`.</li>
+                                                    <li><strong>Từ đồng nghĩa cho "advantage/disadvantage":</strong> <strong class="text-red-600">`benefits`/`drawbacks`, `merits`/`challenges`, `pros`/`cons`</strong>.</li>
+                                                    <li><strong>Từ nối thể hiện sự tương phản:</strong> `Conversely`, `Undoubtedly`, `Consequently`, `Ultimately`.</li>
+                                                </ul>
+                                            </div>
+                                        </div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Accordion 3 -->
+                        <div class="essay-accordion border border-slate-200 rounded-lg">
+                            <button class="accordion-header w-full flex justify-between items-center text-left p-4 bg-slate-100 hover:bg-slate-200 transition-colors duration-200">
+                                <h4 class="text-lg font-bold text-slate-800">Đề 3: Stay at one job for a long time or change jobs frequently?</h4>
+                                <span class="arrow text-indigo-600 text-2xl">▸</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="p-4">
+                                    <nav class="flex border-b border-slate-200 mb-6 rounded-t-lg overflow-hidden">
+                                        <button class="sub-tab-btn flex-1 p-3 text-center text-sm md:text-base text-slate-600 border-b-2 border-transparent transition-colors duration-300 active" data-subtab="essay3-score3">👎 Phiên bản 3/5</button>
+                                        <button class="sub-tab-btn flex-1 p-3 text-center text-sm md:text-base text-slate-600 border-b-2 border-transparent transition-colors duration-300" data-subtab="essay3-score5">👍 Phiên bản 5/5</button>
+                                    </nav>
+                                    <div>
+                                        <div id="essay3-score3" class="sub-tab-content active"><div class="p-4 border border-orange-300 bg-orange-50 rounded-lg"><h5 class="text-lg font-bold mb-2 text-orange-800">Bài Luận Mẫu - Cấp độ 3/5</h4><div class="p-3 bg-white rounded-md text-slate-700 space-y-3"><p>Today, people have different ideas about jobs. Some people stay in one job for many years. Others like to change jobs. I think it is better to change jobs often. There are many reasons for my choice.</p><p><span class="highlight-p"><span class="peel-p">(P)</span> First, changing jobs helps you learn many skills.</span> <span class="highlight-e1"><span class="peel-e1">(E)</span> Every company is different. When you move to a new company, you must learn new things. This makes you a better worker.</span> <span class="highlight-e2"><span class="peel-e2">(E)</span> For example, a person can learn a new computer program at a new job. This new skill is useful.</span> <span class="highlight-l"><span class="peel-l">(L)</span> So, you can get more skills if you change jobs.</span></p><p><span class="highlight-p"><span class="peel-p">(P)</span> Second, you can get more money if you change jobs.</span> <span class="highlight-e1"><span class="peel-e1">(E)</span> New companies often pay more money to get new workers. If you stay in one job, your salary does not grow fast.</span> <span class="highlight-e2"><span class="peel-e2">(E)</span> For instance, many people get a higher salary when they move to a new company. This helps them have more money for their life.</span> <span class="highlight-l"><span class="peel-l">(L)</span> Therefore, changing jobs is good for your money.</span></p><p>In conclusion, I think changing jobs is better than staying in one job. You can learn more skills and get more money. It is a good way to build your career in today's world.</p></div></div></div>
+                                        <div id="essay3-score5" class="sub-tab-content"><div class="p-4 border border-green-300 bg-green-50 rounded-lg"><h5 class="text-lg font-bold mb-2 text-green-800">Bài Luận Mẫu - Cấp độ 5/5</h4><div class="p-3 bg-white rounded-md text-slate-800 space-y-4">
+                                            <p>The modern career landscape presents a fundamental choice between staying with one company for a long time or changing jobs frequently. While both paths have their merits, I firmly believe that strategically changing jobs is the more beneficial approach in today's dynamic economy. In the following paragraphs, I will provide specific reasons and examples to support this viewpoint.</p>
+                                            <p><span class="highlight-p"><span class="peel-p">(P)</span> The primary argument for frequent job changes is the unparalleled opportunity for skill diversification.</span> <span class="highlight-e1"><span class="peel-e1">(E)</span> Each organization possesses its own unique processes, technologies, and workplace cultures. By moving between different environments, a professional is compelled to adapt and acquire a broader range of competencies than they would in a single role. This continuous learning process builds resilience and a highly marketable, multifaceted skill set.</span> <span class="highlight-e2"><span class="peel-e2">(E)</span> For example, a software developer who transitions from a startup utilizing Python and cloud services to a large financial corporation using Java and proprietary systems becomes proficient in multiple technological ecosystems. This adaptability makes them a more valuable and sought-after candidate in the job market.</span> <span class="highlight-l"><span class="peel-l">(L)</span> Thus, this exposure to diverse challenges is a significant competitive advantage that long-term employment rarely provides.</span></p><p><span class="highlight-p"><span class="peel-p">(P)</span> Furthermore, changing jobs is often the most effective strategy for achieving rapid career advancement and substantial salary increases.</span> <span class="highlight-e1"><span class="peel-e1">(E)</span> Internal promotions can be slow and incremental, often limited by company budget cycles and hierarchical structures. In contrast, external hires are frequently brought in at a higher level and salary to fill a specific need, allowing individuals to leapfrog up the career ladder much faster than their loyal counterparts.</span> <span class="highlight-e2"><span class="peel-e2">(E)</span> For instance, industry reports from publications like Forbes consistently show that employees who switch companies every few years can see salary increases of 10-20%, compared to the typical 3-5% annual raise for those who stay. This demonstrates the clear financial and positional benefits of strategic job mobility.</span> <span class="highlight-l"><span class="peel-l">(L)</span> Consequently, for professionals focused on swift career progression, job hopping is an undeniably effective tactic.</span></p><p>In conclusion, while the stability of a long-term job is appealing, the benefits of frequent career moves—namely, diverse skill acquisition and accelerated professional and financial growth—are far more compelling in today's dynamic economy. I am convinced that embracing mobility is the optimal strategy for building a resilient, valuable, and rewarding modern career.</p></div>
+                                            <hr class="my-4 border-green-200">
+                                            <div class="text-green-900 px-3">
+                                                <h6 class="font-bold text-lg mb-3">Phân Tích Yếu Tố "Ăn Điểm"</h6>
+                                                <ul class="analysis-list text-sm">
+                                                    <li><strong>Câu phức với so sánh:</strong> "...leapfrog up the career ladder much faster than their loyal counterparts."</li>
+                                                    <li><strong>Mệnh đề quan hệ (who):</strong> "...a software developer who transitions from a startup..."</li>
+                                                    <li><strong>Cấu trúc "not only... but also" (ngụ ý):</strong> Bài viết thể hiện rõ lợi ích không chỉ về kỹ năng mà còn về tài chính.</li>
+                                                </ul>
+                                                <ul class="analysis-list vocab text-sm mt-3">
+                                                    <li><strong>Cụm từ chuyên nghiệp:</strong> `career landscape`, `fundamental choice`, `versatile skill set`, `skill diversification`, `strategic job mobility`.</li>
+                                                    <li><strong>Từ đồng nghĩa cho "change jobs":</strong> <strong class="text-red-600">`job hopping`, `embracing mobility`, `career moves`</strong>.</li>
+                                                    <li><strong>Từ nối logic:</strong> `Furthermore`, `In contrast`, `Consequently`, `Thus`.</li>
+                                                </ul>
+                                            </div>
+                                        </div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Practice Tab -->
+                <div id="practice" class="tab-content">
+                    <h3 class="text-2xl font-bold mb-4 text-indigo-700">Đến Lượt Bạn Luyện Tập!</h3>
+                    <p class="mb-4 text-slate-600">Bây giờ, hãy thử viết một bài luận hoàn chỉnh của riêng bạn cho một trong ba đề bài trên.</p>
+                    <p class="mb-6 text-slate-600"><strong>Hướng dẫn:</strong> Sau khi viết xong, bạn có thể chuyển qua tab "Phân Tích Mẫu" để so sánh và tự đánh giá bài của mình.</p>
+                    <div id="editor-practice" contenteditable="true" class="w-full h-96 p-4 border border-slate-300 rounded-lg bg-white focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition" placeholder="Bắt đầu viết bài luận của bạn ở đây..."></div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="text-center mt-8 text-slate-500 text-sm">
+            <p>© 2025 - The Archangel</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Main tab functionality
+            const mainTabButtons = document.querySelectorAll('.tab-btn');
+            const mainTabContents = document.querySelectorAll('.tab-content');
+
+            mainTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    mainTabButtons.forEach(btn => btn.classList.remove('active'));
+                    mainTabContents.forEach(content => content.classList.remove('active'));
+                    button.classList.add('active');
+                    document.getElementById(button.dataset.tab).classList.add('active');
+                });
+            });
+
+            // Accordion functionality
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const isActive = header.classList.contains('active');
+
+                    // Close all other accordions
+                    accordionHeaders.forEach(h => {
+                        if (h !== header) {
+                            h.classList.remove('active');
+                            h.nextElementSibling.style.maxHeight = null;
+                        }
+                    });
+
+                    // Toggle the clicked accordion
+                    if (isActive) {
+                        header.classList.remove('active');
+                        content.style.maxHeight = null;
+                    } else {
+                        header.classList.add('active');
+                        const activeSubContent = content.querySelector('.sub-tab-content.active');
+                        content.style.maxHeight = activeSubContent.scrollHeight + 120 + 'px';
+                    }
+                });
+            });
+
+            // Sub-tab functionality for each essay section
+            const essaySections = document.querySelectorAll('.essay-accordion');
+
+            essaySections.forEach(section => {
+                const subTabButtons = section.querySelectorAll('.sub-tab-btn');
+                const subTabContents = section.querySelectorAll('.sub-tab-content');
+                const accordionContent = section.querySelector('.accordion-content');
+                const accordionHeader = section.querySelector('.accordion-header');
+
+                // Activate the first sub-tab by default
+                if (subTabButtons.length > 0) {
+                    subTabButtons[0].classList.add('active');
+                    subTabContents[0].classList.add('active');
+                }
+
+                subTabButtons.forEach(button => {
+                    button.addEventListener('click', (event) => {
+                        event.stopPropagation(); 
+
+                        subTabButtons.forEach(btn => btn.classList.remove('active'));
+                        button.classList.add('active');
+
+                        subTabContents.forEach(content => content.classList.remove('active'));
+                        const targetContent = section.querySelector(`#${button.dataset.subtab}`);
+                        targetContent.classList.add('active');
+                        
+                        if (accordionHeader.classList.contains('active')) {
+                             accordionContent.style.maxHeight = targetContent.scrollHeight + 120 + 'px';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
